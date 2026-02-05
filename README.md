@@ -1,4 +1,4 @@
-The projekt is not finished at all right now i do not have that much data but i will get much more on Cloud and cloud engineering. Also feel free to use clone this repo and dlete the DATA inside and put your own
+The project is not finished at all right now i do not have that much data but i will get much more on Cloud and cloud engineering. Also feel free to use clone this repo and dlete the DATA inside and put your own
 
 # 🤖 Personal Cloud Support Assistant
 
