@@ -11,7 +11,7 @@ This is your personal **RAG (Retrieval-Augmented Generation)** system that acts 
 ## How it works
 
 ```
-📄 Your Documents → 🧠 Vector Database → 🤖 Local AI → 💬 Accurate Answers
+Your Documents →  Vector Database →  Local AI → 💬 Accurate Answers
 ```
 
 1. **Add your knowledge** - Drop markdown or PDF files into the `data/` folder
@@ -20,11 +20,11 @@ This is your personal **RAG (Retrieval-Augmented Generation)** system that acts 
 
 ## Features
 
-- 🆓 **100% Free** - Uses Ollama (local AI), no API costs
-- 🔒 **Private** - Everything runs on your machine, no data leaves your computer
-- 📚 **Your Knowledge** - Answers come only from your documents, not internet hallucinations
-- 📎 **Source Citations** - Always tells you where the answer came from
-- ⚡ **Fast** - Instant responses, no waiting for cloud APIs
+-  **100% Free** - Uses Ollama (local AI), no API costs
+-  **Private** - Everything runs on your machine, no data leaves your computer
+-  **Your Knowledge** - Answers come only from your documents, not internet hallucinations
+-  **Source Citations** - Always tells you where the answer came from
+-  **Fast** - Instant responses, no waiting for cloud APIs
 
 ## Current Knowledge Base
 
