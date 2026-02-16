@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from backend.models.chat import Messages
+from backend.models.message import Messages
 
 
 
