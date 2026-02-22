@@ -61,12 +61,15 @@ fill-db: venv
 	. $(VENV)/bin/activate && cd backend && $(PYTHON) fill_db.py
 	@echo "✅ Database populated"
 
-# Run both backend and frontend
+# Run both backend, Rag and frontend 
 run: venv
 	@echo "🚀 Starting backend API server..."
 	. $(VENV)/bin/activate && cd backend && $(PYTHON) app.py &
 	@echo "🚀 Starting frontend dev server..."
 	cd frontend && $(NPM) run dev
+	@echo "RAG starting up..." 
+	. $(VENV)/bin/activate && cd RAG && $(PYTHON) ask.py
+
 
 # Run only backend
 run-backend: venv

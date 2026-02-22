@@ -1,10 +1,13 @@
 from fastapi import FastAPI
 from api.routes.main import router
 from fastapi.middleware.cors import CORSMiddleware
+from config.db import Base, engine
+from models.db_models import ConversationDb, MessageDB
 import uvicorn
 
 
 app = FastAPI()
+Base.metadata.create_all(bind=engine)
 app.include_router(router)
 
 app.add_middleware(

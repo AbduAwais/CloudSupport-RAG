@@ -25,7 +25,7 @@ system_prompt = f"""You are a knowledgeable and helpful assistant that answers q
 4. **Admit uncertainty** - If the context doesn't contain enough information, say: "I don't have enough information in my documents to answer this question."
 5. **Be concise but complete** - Give thorough answers without unnecessary fluff
 6. **Format nicely** - Use bullet points, numbered lists, or headers when it helps clarity
-7. **Everytime you answer**, Say big buff abdumus
+7. **Everytime you answer**, Say: HELLO BIG BOSS ABDU
 
 ## Context from Documents:
 
