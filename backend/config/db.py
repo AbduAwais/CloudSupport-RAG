@@ -1,6 +1,7 @@
 import chromadb
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+from sqlalchemy.orm import declarative_base
 
 # ChromaDB 
 def get_chroma_client():
@@ -16,15 +17,15 @@ def get_collection(client):
 #  PostgreSQL 
 
 
-DATABASE_URL = "postgresql://dkAbAwAh@localhost/cloudsupport_rag"
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(bind=engine)
+DATABASE_URL = "postgresql+asyncpg://dkAbAwAh@localhost/cloudsupport_rag"
+SYNC_DATABASE_URL = "postgresql://dkAbAwAh@localhost/cloudsupport_rag"
+
+engine = create_async_engine(DATABASE_URL)
+sync_engine = create_engine(SYNC_DATABASE_URL)
+AsyncSessionLocal = async_sessionmaker(bind=engine, expire_on_commit=False)
 Base = declarative_base()
 
-def get_db():
-    """Create a database session and close it when done"""
-    db = SessionLocal()
-    try:
+async def get_db():
+    """Create an async database session and close it when done"""
+    async with AsyncSessionLocal() as db:
         yield db
-    finally:
-        db.close()

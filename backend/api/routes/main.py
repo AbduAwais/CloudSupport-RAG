@@ -20,7 +20,7 @@ async def query_rag(request: Query) -> Messages:
         Messages object with source documents, metadata, and query info
     """
     try:
-        response = rag_service.query(request)
+        response = await rag_service.query(request)
         return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

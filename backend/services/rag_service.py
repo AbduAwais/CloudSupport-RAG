@@ -1,12 +1,13 @@
 
 from config.db import get_chroma_client, get_collection
 from models.message import Messages, Query
-import ollama
+from ollama import AsyncClient
 
 class RAGService:
     def __init__(self):
         self.chroma_client = get_chroma_client()
         self.collection = get_collection(self.chroma_client)
+        self.client = AsyncClient()
 
     def system_prompt(self, documents: list, metadatas: list) -> str:
                    
@@ -34,7 +35,7 @@ class RAGService:
             Remember: If you cannot find the answer in the context above, DO NOT make up information. Simply state that you don't have that information in your knowledge base"""
 
 
-    def query(self, request: Query) -> Messages:
+    async def query(self, request: Query) -> Messages:
        
         search_result = self.collection.query(
             query_texts=[request.query],
@@ -44,7 +45,7 @@ class RAGService:
 
         prompt = self.system_prompt(flat_documents, flat_results)
 
-        response = ollama.chat(
+        response = await self.client.chat(
             model="llama3.2",
             messages=[
                 {"role": "system", "content": prompt},
